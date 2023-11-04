@@ -41,8 +41,10 @@ recordRoutes.route("/record/add").post(function (req, response) {
  let db_connect = dbo.getDb();
  let myobj = {
    name: req.body.name,
-   position: req.body.position,
-   level: req.body.level,
+   type: req.body.type,
+   priority_level: req.body.priority_level,
+    deadline: req.body.deadline,
+    estimated_hours: req.body.estimated_hours
  };
  db_connect.collection("records").insertOne(myobj, function (err, res) {
    if (err) throw err;

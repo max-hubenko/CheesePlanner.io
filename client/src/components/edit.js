@@ -2,9 +2,7 @@ import React, { useState, useEffect } from "react";
 import { useParams, useNavigate } from "react-router";
  export default function Edit() {
  const [form, setForm] = useState({
-   name: "",
-   position: "",
-   level: "",
+    name: "", deadline: "",estimated_hours: "", priority_level: "", type: "",
    records: [],
  });
  const params = useParams();
@@ -38,9 +36,12 @@ import { useParams, useNavigate } from "react-router";
   async function onSubmit(e) {
    e.preventDefault();
    const editedPerson = {
-     name: form.name,
-     position: form.position,
-     level: form.level,
+    name: form.name,
+     deadline: form.deadline,
+     estimated_hours: form.estimated_hours,
+    priority_level: form.priority_level, 
+    type: form.type,
+
    };
     // This will send a post request to update the data in the database.
    await fetch(`http://localhost:3000/update/${params.id}`, {
