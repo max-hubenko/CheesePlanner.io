@@ -8,7 +8,7 @@ import Container from 'react-bootstrap/Container';
 export default function Navibar() {
   return (
     <Navbar expand="lg" className="bg-body-tertiary">
-    <Container style={{ display: "flex", justifyContent: "space-between" }}>
+    <Container fluid>
       <div style={{ display: "flex", alignItems: "center" }}>
         <img
           width="35vh"
