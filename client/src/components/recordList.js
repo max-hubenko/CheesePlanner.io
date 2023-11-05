@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 const Record = (props) => (
  <tr>
-   <td>{props.record.name}</td>
+   <td>{props.record.topic}</td>
    <td>{props.record.deadline}</td>
    <td>{props.record.estimated_hours}</td>
    <td>{props.record.priority_level}</td>
@@ -63,7 +63,7 @@ export default function RecordList() {
      <table className="table table-striped" style={{ marginTop: 20 }}>
        <thead>
          <tr>
-           <th>Name</th>
+           <th>Topic</th>
            <th>Type</th>
            <th>Priority Level</th>
            <th>Due Date</th>

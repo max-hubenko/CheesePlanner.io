@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { useNavigate } from "react-router";
 export default function Create() {
  const [form, setForm] = useState({
-    name: "", deadline: "",estimated_hours: "", priority_level: "", type: "",
+    topic: "", deadline: "",estimated_hours: "", priority_level: "", type: "",
  });
  const navigate = useNavigate();
   // These methods will update the state properties.
@@ -15,19 +15,19 @@ export default function Create() {
  async function onSubmit(e) {
    e.preventDefault();
     // When a post request is sent to the create url, we'll add a new record to the database.
-   const newPerson = { ...form };
+   const newTODO = { ...form };
     await fetch("http://localhost:3000/record/add", {
      method: "POST",
      headers: {
        "Content-Type": "application/json",
      },
-     body: JSON.stringify(newPerson),
+     body: JSON.stringify(newTODO),
    })
    .catch(error => {
      window.alert(error);
      return;
    });
-    setForm({ name: "", deadline: "",estimated_hours: "", priority_level: "", isExam: "", });
+    setForm({ topic: "", deadline: "",estimated_hours: "", priority_level: "", type: "", });
    navigate("/");
  }
   // This following section will display the form that takes the input from the user.
@@ -41,8 +41,8 @@ export default function Create() {
            type="text"
            className="form-control"
            id="topic"
-           value={form.name}
-           onChange={(e) => updateForm({ name: e.target.value })}
+           value={form.top}
+           onChange={(e) => updateForm({ topic: e.target.value })}
          />
        </div>
        <div className="form-group">
@@ -66,15 +66,15 @@ export default function Create() {
          />
        </div> 
        <div className="form-group">
-         <label htmlFor="priority-level">Priority Level</label>
+        <label htmlFor="priority-level">Priority Level (1-5)</label>
          <input
-           type="text"
-           className="form-control"
-           id="priority-level"
-           value={form.priority_level}
-           onChange={(e) => updateForm({ priority_level: e.target.value })}
-         />
-       </div> 
+          type="text"
+          className="form-control"
+          id="priority-level"
+          value={form.priority_level}
+          onChange={(e) => updateForm({ priority_level: e.target.value })}
+       />
+      </div>
        <div className="form-group">
          <div className="form-check form-check-inline">
            <input
@@ -95,7 +95,7 @@ export default function Create() {
              name="todoOptions"
              id="typeAssignment"
              value="Assignment"
-             checked={form.level === "Junior"}
+             checked={form.type === "Assignment"}
              onChange={(e) => updateForm({ type: e.target.value })}
            />
            <label htmlFor="typeAssignment" className="form-check-label">Assignment</label>

@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import { useParams, useNavigate } from "react-router";
  export default function Edit() {
  const [form, setForm] = useState({
-    name: "", deadline: "",estimated_hours: "", priority_level: "", type: "",
+    topic: "", deadline: "",estimated_hours: "", priority_level: "", type: "",
    records: [],
  });
  const params = useParams();
@@ -37,8 +37,8 @@ import { useParams, useNavigate } from "react-router";
    e.preventDefault();
    const editedPerson = {
     name: form.name,
-     deadline: form.deadline,
-     estimated_hours: form.estimated_hours,
+    deadline: form.deadline,
+    estimated_hours: form.estimated_hours,
     priority_level: form.priority_level, 
     type: form.type,
 
@@ -59,23 +59,33 @@ import { useParams, useNavigate } from "react-router";
      <h3>Update Record</h3>
      <form onSubmit={onSubmit}>
        <div className="form-group">
-         <label htmlFor="name">Name: </label>
+         <label htmlFor="topic">Topic: </label>
          <input
            type="text"
            className="form-control"
-           id="name"
-           value={form.name}
-           onChange={(e) => updateForm({ name: e.target.value })}
+           id="topic"
+           value={form.topic}
+           onChange={(e) => updateForm({ topic: e.target.value })}
          />
        </div>
        <div className="form-group">
-         <label htmlFor="position">Position: </label>
+         <label htmlFor="deadline">Deadline: </label>
          <input
            type="text"
            className="form-control"
-           id="position"
-           value={form.position}
-           onChange={(e) => updateForm({ position: e.target.value })}
+           id="deadline"
+           value={form.deadline}
+           onChange={(e) => updateForm({ deadline: e.target.value })}
+         />
+       </div>
+       <div className="form-group">
+         <label htmlFor="estimated-hours">Estimated Hours: </label>
+         <input
+           type="text"
+           className="form-control"
+           id="estimated-hours"
+           value={form.estimated_hours}
+           onChange={(e) => updateForm({ estimated_hours: e.target.value })}
          />
        </div>
        <div className="form-group">

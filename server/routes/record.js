@@ -14,14 +14,14 @@ const ObjectId = require("mongodb").ObjectId;
  
 // This section will help you get a list of all the records.
 recordRoutes.route("/record").get(function (req, res) {
- let db_connect = dbo.getDb("employees");
+ let db_connect = dbo.getDb("schedule");
  db_connect
    .collection("records")
    .find({})
-   .toArray(function (err, result) {
-     if (err) throw err;
-     res.json(result);
-   });
+   .toArray()
+   .then((result) => {
+      res.json(result);
+    })
 });
  
 // This section will help you get a single record by id
@@ -40,7 +40,7 @@ recordRoutes.route("/record/:id").get(function (req, res) {
 recordRoutes.route("/record/add").post(function (req, response) {
  let db_connect = dbo.getDb();
  let myobj = {
-   name: req.body.name,
+   topic: req.body.topic,
    type: req.body.type,
    priority_level: req.body.priority_level,
     deadline: req.body.deadline,
@@ -58,9 +58,12 @@ recordRoutes.route("/update/:id").post(function (req, response) {
  let myquery = { _id: ObjectId(req.params.id) };
  let newvalues = {
    $set: {
-     name: req.body.name,
-     position: req.body.position,
-     level: req.body.level,
+     topic: req.body.topic,
+     priority_level: req.body.priority_level,
+     type: req.body.type,
+      deadline: req.body.deadline,
+      estimated_hours: req.body.estimated_hours
+
    },
  };
  db_connect
