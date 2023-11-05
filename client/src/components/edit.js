@@ -46,6 +46,11 @@ export default function Edit() {
             priority_level: form.priority_level,
             type: form.type,
         };
+        if(editedSchedule.topic === "" || editedSchedule.deadline === "" || editedSchedule.estimated_hours === "" || editedSchedule.priority_level === "" || editedSchedule.type === "") {
+            window.alert("Please fill in all the fields.");
+            return;
+        }
+
         // This will send a post request to update the data in the database.
         await fetch(`http://localhost:3000/update/${params.id}`, {
             method: "POST",
@@ -59,8 +64,8 @@ export default function Edit() {
     }
     // This following section will display the form that takes input from the user to update the data.
     return (
-        <div>
-            <h3>Update Record</h3>
+        <div className="form-box">
+            <h3 className="page-title">Update Record</h3>
             <form onSubmit={onSubmit}>
                 <div className="form-group">
                     <label htmlFor="topic">Topic: </label>
@@ -73,7 +78,7 @@ export default function Edit() {
                     />
                 </div>
                 <div className="form-group">
-                    <label htmlFor="deadline">Deadline: </label>
+                    <label htmlFor="deadline">Deadline </label>
                     <input
                         type="date"
                         className="form-control"
@@ -83,9 +88,9 @@ export default function Edit() {
                     />
                 </div>
                 <div className="form-group">
-                    <label htmlFor="estimated-hours">Estimated Hours: </label>
+                    <label htmlFor="estimated-hours">Estimated Hours </label>
                     <input
-                        type="text"
+                        type="number"
                         className="form-control"
                         id="estimated-hours"
                         value={form.estimated_hours}
@@ -93,7 +98,7 @@ export default function Edit() {
                     />
                 </div>
                 <div className="form-group">
-                    <label htmlFor="priority-level">Priority Level: </label>
+                    <label htmlFor="priority-level">Priority Level (1-5, level 1 is the highest priority)</label>
                     <input
                         type="number"
                         className="form-control"

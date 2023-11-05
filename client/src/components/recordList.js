@@ -68,10 +68,10 @@ export default function RecordList() {
        <thead>
          <tr>
            <th>Topic</th>
-           <th>Type</th>
-           <th>Priority Level</th>
            <th>Due Date</th>
            <th>Estimated Hours</th>
+           <th>Priority Level</th>
+           <th>Type</th>
            <th>Action</th>
          </tr>
        </thead>

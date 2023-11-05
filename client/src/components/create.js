@@ -1,7 +1,5 @@
-import { Toast } from "bootstrap";
 import React, { useState } from "react";
 import { useNavigate } from "react-router";
-import 'react-toastify/dist/ReactToastify.css';
 export default function Create() {
     const [form, setForm] = useState({
         topic: "", deadline: "", estimated_hours: "", priority_level: "", type: "",
@@ -18,6 +16,10 @@ export default function Create() {
         e.preventDefault();
         // When a post request is sent to the create url, we'll add a new record to the database.
         const newTODO = { ...form };
+        if(newTODO.topic === "" || newTODO.deadline === "" || newTODO.estimated_hours === "" || newTODO.priority_level === "" || newTODO.type === "") {
+            window.alert("Please fill in all the fields.");
+            return;
+        }
         await fetch("http://localhost:3000/record/add", {
             method: "POST",
             headers: {
@@ -30,7 +32,7 @@ export default function Create() {
                 return;
             });
         setForm({ topic: "", deadline: "", estimated_hours: "", priority_level: "", type: "", });
-        
+        navigate("/");
     }
     // This method will navigate user back to the homepage.
     function backToHome() {
@@ -38,7 +40,7 @@ export default function Create() {
     }
     // This following section will display the form that takes the input from the user.
     return (
-        <div>
+        <div className="form-box">
             <h3>Create New Schedule</h3>
             <form onSubmit={onSubmit}>
                 <div className="form-group">
@@ -64,7 +66,7 @@ export default function Create() {
                 <div className="form-group">
                     <label htmlFor="estimated-hours">Estimated Hours</label>
                     <input
-                        type="text"
+                        type="number"
                         className="form-control"
                         id="estimated-hours"
                         value={form.estimated_hours}
@@ -72,7 +74,7 @@ export default function Create() {
                     />
                 </div>
                 <div className="form-group">
-                    <label htmlFor="priority-level">Priority Level (1-5)</label>
+                    <label htmlFor="priority-level">Priority Level (1-5, level 1 is the highest priority)</label>
                     <input
                         type="number"
                         className="form-control"
