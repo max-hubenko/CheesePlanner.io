@@ -68,6 +68,10 @@ Use the built-in Pomodoro timer in the "Daily" option from the "View Schedule" d
 
 We welcome contributions from the community. If you'd like to contribute to CheeseHacks.io, please just contribute
 
+## Sample Image
+
+![alt text](https://github.com/max-hubenko/M-Ms-cheese-hacks/blob/main/FullScreenMain.png?raw=true)
+
 ## License
 
 We do not have a license honestly
