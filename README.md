@@ -36,9 +36,11 @@ To get started with CheeseHacks.io, follow these steps:
 
 **FOR BOTH THE SERVER AND THE CLIENT (STARTING WITH THE SERVER):**
 
-3. Install the necessary dependencies using npm install
+3. Start the application using node server.js @ /server
 
-4. Start the application using npm start
+4. Install the necessary dependencies using npm install
+
+5. Start the application using npm start @ /client
 
 The application will be accessible in your web browser at `http://localhost:3000`.
 
