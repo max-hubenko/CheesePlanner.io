@@ -1,5 +1,8 @@
 import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
+function refreshPage() {
+  window.location.reload(false);
+}
 const Record = (props) => (
  <tr>
    <td>{props.record.topic}</td>
@@ -12,6 +15,7 @@ const Record = (props) => (
      <button className="btn btn-link"
        onClick={() => {
          props.deleteRecord(props.record._id);
+         refreshPage();
        }}
      >
        Delete

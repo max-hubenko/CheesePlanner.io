@@ -11,6 +11,10 @@ export default function Create() {
             return { ...prev, ...value };
         });
     }
+    // This function refreshes the form.
+    function refreshPage() {
+        window.location.reload(false);
+    }
     // This function will handle the submission.
     async function onSubmit(e) {
         e.preventDefault();
@@ -28,7 +32,10 @@ export default function Create() {
                 return;
             });
         setForm({ topic: "", deadline: "", estimated_hours: "", priority_level: "", type: "", });
+        // This will navigate us back to the homepage.
         navigate("/");
+        refreshPage();
+        
     }
     // This following section will display the form that takes the input from the user.
     return (

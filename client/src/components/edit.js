@@ -33,24 +33,28 @@ export default function Edit() {
             return { ...prev, ...value };
         });
     }
+    // This function refreshes the form.
+    function refreshPage() {
+        window.location.reload(false);
+    }
     async function onSubmit(e) {
         e.preventDefault();
-        const editedPerson = {
+        const editedSchedule = {
             name: form.name,
             deadline: form.deadline,
             estimated_hours: form.estimated_hours,
             priority_level: form.priority_level,
             type: form.type,
-
         };
         // This will send a post request to update the data in the database.
         await fetch(`http://localhost:3000/update/${params.id}`, {
             method: "POST",
-            body: JSON.stringify(editedPerson),
+            body: JSON.stringify(editedSchedule),
             headers: {
                 'Content-Type': 'application/json'
             },
         });
+        refreshPage();
         navigate("/");
     }
     // This following section will display the form that takes input from the user to update the data.
