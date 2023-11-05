@@ -74,9 +74,11 @@ export default function Create() {
                 <div className="form-group">
                     <label htmlFor="priority-level">Priority Level (1-5)</label>
                     <input
-                        type="text"
+                        type="number"
                         className="form-control"
                         id="priority-level"
+                        min="1" 
+                        max="5"
                         value={form.priority_level}
                         onChange={(e) => updateForm({ priority_level: e.target.value })}
                     />

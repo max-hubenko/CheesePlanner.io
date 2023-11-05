@@ -95,9 +95,11 @@ export default function Edit() {
                 <div className="form-group">
                     <label htmlFor="priority-level">Priority Level: </label>
                     <input
-                        type="text"
+                        type="number"
                         className="form-control"
                         id="priority-level"
+                        min="1" 
+                        max="5"
                         value={form.priority_level}
                         onChange={(e) => updateForm({ priority_level: e.target.value })}
                     />
