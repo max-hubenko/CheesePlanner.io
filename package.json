@@ -1,5 +1,6 @@
 {
   "dependencies": {
+    "date-fns": "^2.30.0",
     "react-toastify": "^9.1.3"
   }
 }

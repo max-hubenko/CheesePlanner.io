@@ -39,12 +39,13 @@ recordRoutes.route("/record/:id").get(function (req, res) {
 // This section will help you create a new record.
 recordRoutes.route("/record/add").post(function (req, response) {
   let db_connect = dbo.getDb();
+  let date = new Date();
   let myobj = {
     topic: req.body.topic,
     type: req.body.type,
     priority_level: req.body.priority_level,
     deadline: req.body.deadline,
-    estimated_hours: req.body.estimated_hours
+    estimated_hours: req.body.estimated_hours,
   };
   db_connect.collection("records").insertOne(myobj, function (err, res) {
     if (err) throw err;
@@ -55,6 +56,7 @@ recordRoutes.route("/record/add").post(function (req, response) {
 // This section will help you update a record by id.
 recordRoutes.route("/update/:id").post(function (req, response) {
   let db_connect = dbo.getDb();
+  let date = new Date();
   let myquery = { _id: new ObjectId(req.params.id) };
   let newvalues = {
     $set: {
@@ -62,7 +64,7 @@ recordRoutes.route("/update/:id").post(function (req, response) {
       priority_level: req.body.priority_level,
       type: req.body.type,
       deadline: req.body.deadline,
-      estimated_hours: req.body.estimated_hours
+      estimated_hours: req.body.estimated_hours,
     },
   };
   db_connect
