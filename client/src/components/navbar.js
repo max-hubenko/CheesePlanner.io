@@ -27,7 +27,7 @@ export default function Navibar() {
             <NavDropdown  style={{marginRight:"5px"}} title="View Schedule" id="basic-nav-dropdown">
               <NavDropdown.Item href="/daily">Daily</NavDropdown.Item>
               <NavDropdown.Item href="/weekly">Weekly</NavDropdown.Item>
-              <NavDropdown.Item href="#action/3.3">Monthly</NavDropdown.Item>
+              <NavDropdown.Item href="/monthly">Monthly</NavDropdown.Item>
             </NavDropdown>
           </Nav>
         </Navbar.Collapse>

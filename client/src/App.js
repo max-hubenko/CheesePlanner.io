@@ -9,6 +9,7 @@ import Edit from "./components/edit";
 import Create from "./components/create";
 import TodoList from "./components/generateDay";
 import WeeklySchedule from "./components/generateWeek";
+import MonthlySchedule from "./components/generateMonth";
 
  const App = () => {
  return (
@@ -20,6 +21,7 @@ import WeeklySchedule from "./components/generateWeek";
        <Route path="/create" element={<Create />} />
        <Route path="/daily" element={< TodoList />} />
        <Route path="/weekly" element={< WeeklySchedule />} />
+       <Route path="/monthly" element={< MonthlySchedule />} />
      </Routes>
    </div>
  );
