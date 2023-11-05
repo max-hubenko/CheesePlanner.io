@@ -8,6 +8,7 @@ import RecordList from "./components/recordList";
 import Edit from "./components/edit";
 import Create from "./components/create";
 import TodoList from "./components/generateDay";
+import WeeklySchedule from "./components/generateWeek";
 
  const App = () => {
  return (
@@ -18,6 +19,7 @@ import TodoList from "./components/generateDay";
        <Route path="/edit/:id" element={<Edit />} />
        <Route path="/create" element={<Create />} />
        <Route path="/daily" element={< TodoList />} />
+       <Route path="/weekly" element={< WeeklySchedule />} />
      </Routes>
    </div>
  );

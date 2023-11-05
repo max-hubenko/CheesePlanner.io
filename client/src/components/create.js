@@ -40,86 +40,91 @@ export default function Create() {
     }
     // This following section will display the form that takes the input from the user.
     return (
-        <div className="form-box">
-            <h3>Create New Schedule</h3>
-            <form onSubmit={onSubmit}>
-                <div className="form-group">
-                    <label htmlFor="topic">Topic</label>
-                    <input
-                        type="text"
-                        className="form-control"
-                        id="topic"
-                        value={form.top}
-                        onChange={(e) => updateForm({ topic: e.target.value })}
-                    />
+        <div style={{display:"flex", flexDirection:"column", justifyContent: "center", alignContent: "center", height: "100vh" }}>
+            <div style={{display:"flex",flexDirection:"column",marginTop:"10vh"}}className="form-box">
+                <div style={{display:"flex",justifyContent:"center"}}>
+                    <h3>Create New Schedule</h3>
                 </div>
-                <div className="form-group">
-                    <label htmlFor="deadline">Deadline</label>
-                    <input
-                        type="date"
-                        className="form-control"
-                        id="deadline"
-                        value={form.deadline}
-                        onChange={(e) => updateForm({ deadline: e.target.value })}
-                    />
-                </div>
-                <div className="form-group">
-                    <label htmlFor="estimated-hours">Estimated Hours</label>
-                    <input
-                        type="number"
-                        className="form-control"
-                        id="estimated-hours"
-                        value={form.estimated_hours}
-                        onChange={(e) => updateForm({ estimated_hours: e.target.value })}
-                    />
-                </div>
-                <div className="form-group">
-                    <label htmlFor="priority-level">Priority Level (1-5, level 1 is the highest priority)</label>
-                    <input
-                        type="number"
-                        className="form-control"
-                        id="priority-level"
-                        min="1" 
-                        max="5"
-                        value={form.priority_level}
-                        onChange={(e) => updateForm({ priority_level: e.target.value })}
-                    />
-                </div>
-                <div className="form-group">
-                    <div className="form-check form-check-inline">
+                <form onSubmit={onSubmit}>
+                    <div className="form-group">
+                        <label htmlFor="topic">Topic</label>
                         <input
-                            className="form-check-input"
-                            type="radio"
-                            name="todoOptions"
-                            id="typeExam"
-                            value="Exam"
-                            checked={form.type === "Exam"}
-                            onChange={(e) => updateForm({ type: e.target.value })}
+                            type="text"
+                            className="form-control"
+                            id="topic"
+                            value={form.top}
+                            onChange={(e) => updateForm({ topic: e.target.value })}
                         />
-                        <label htmlFor="typeExam" className="form-check-label">Exam</label>
                     </div>
-                    <div className="form-check form-check-inline">
+                    <div className="form-group">
+                        <label htmlFor="deadline">Deadline</label>
                         <input
-                            className="form-check-input"
-                            type="radio"
-                            name="todoOptions"
-                            id="typeAssignment"
-                            value="Assignment"
-                            checked={form.type === "Assignment"}
-                            onChange={(e) => updateForm({ type: e.target.value })}
+                            type="date"
+                            className="form-control"
+                            id="deadline"
+                            value={form.deadline}
+                            onChange={(e) => updateForm({ deadline: e.target.value })}
                         />
-                        <label htmlFor="typeAssignment" className="form-check-label">Assignment</label>
                     </div>
-                </div>
-                <div className="form-group">
-                    <input
-                        type="submit"
-                        value="Create Schedule"
-                        className="btn btn-primary"
-                    />
-                </div>
-            </form>
-            <div><button onClick={backToHome}>Back to Home</button></div>
+                    <div className="form-group">
+                        <label htmlFor="estimated-hours">Estimated Hours</label>
+                        <input
+                            type="number"
+                            className="form-control"
+                            id="estimated-hours"
+                            value={form.estimated_hours}
+                            onChange={(e) => updateForm({ estimated_hours: e.target.value })}
+                        />
+                    </div>
+                    <div className="form-group">
+                        <label htmlFor="priority-level">Priority Level (1-5, level 1 is the highest priority)</label>
+                        <input
+                            type="number"
+                            className="form-control"
+                            id="priority-level"
+                            min="1" 
+                            max="5"
+                            value={form.priority_level}
+                            onChange={(e) => updateForm({ priority_level: e.target.value })}
+                        />
+                    </div>
+                    <div className="form-group">
+                        <div className="form-check form-check-inline">
+                            <input
+                                className="form-check-input"
+                                type="radio"
+                                name="todoOptions"
+                                id="typeExam"
+                                value="Exam"
+                                checked={form.type === "Exam"}
+                                onChange={(e) => updateForm({ type: e.target.value })}
+                            />
+                            <label htmlFor="typeExam" className="form-check-label">Exam</label>
+                        </div>
+                        <div className="form-check form-check-inline">
+                            <input
+                                className="form-check-input"
+                                type="radio"
+                                name="todoOptions"
+                                id="typeAssignment"
+                                value="Assignment"
+                                checked={form.type === "Assignment"}
+                                onChange={(e) => updateForm({ type: e.target.value })}
+                            />
+                            <label htmlFor="typeAssignment" className="form-check-label">Assignment</label>
+                        </div>
+                    </div>
+                    <div style={{display:"flex",justifyContent:"center",marginTop:"2vh"}} className="form-group">
+                        <input
+                            type="submit"
+                            value="Submit Topic"
+                            className="btn btn-primary"
+                            style={{width:"100%"}}
+                        />
+                        <button className="btn btn-primary" style={{width:"100%", marginLeft:'3px'}} onClick={backToHome}>Back to Home</button>
+                    </div>
+                </form>
+            </div>
         </div>
     );
 }

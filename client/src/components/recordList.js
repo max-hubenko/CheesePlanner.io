@@ -61,22 +61,24 @@ export default function RecordList() {
    });
  }
   // This following section will display the table with the records of individuals.
- return (
-   <div>
-     <h3>Your TODOs</h3>
-     <table className="table table-striped" style={{ marginTop: 20 }}>
-       <thead>
-         <tr>
-           <th>Topic</th>
-           <th>Due Date</th>
-           <th>Estimated Hours</th>
-           <th>Priority Level</th>
-           <th>Type</th>
-           <th>Action</th>
-         </tr>
-       </thead>
-       <tbody>{recordList()}</tbody>
-     </table>
-   </div>
- );
+  return (
+    <div style={{display:"flex", flexDirection:"column"}}>
+      <div style={{display:"flex", justifyContent:"center"}}>
+         <h3>Your TODOs</h3>
+      </div>
+      <table className="table table-striped" style={{ marginTop: 10 }}>
+        <thead>
+          <tr>
+            <th>Topic</th>
+            <th>Due Date</th>
+            <th>Estimated Hours</th>
+            <th>Priority Level</th>
+            <th>Type</th>
+            <th>Action</th>
+          </tr>
+        </thead>
+        <tbody>{recordList()}</tbody>
+      </table>
+    </div>
+  );
 }

@@ -1,0 +1,47 @@
+/* WeeklySchedule.css */
+.weekly-schedule-container {
+    font-family: Arial, sans-serif;
+    text-align: center;
+    margin: 20px;
+    }
+    
+    
+    .weekly-schedule {
+    width: 100%;
+    border-collapse: collapse;
+    }
+    
+    
+    .th,
+    .td {
+    padding: 8px;
+    border: 1px solid #ccc;
+    }
+    
+    
+    .task-cell {
+    background-color: #e6f7ff;
+    /* Light blue for task cells */
+    }
+    
+    
+    .break-cell {
+    background-color: #f2f2f2;
+    /* Gray for break cells */
+    }
+    
+    
+    .task-input {
+    width: 100%;
+    padding: 4px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    }
+    
+    
+    .weekly-schedule-header {
+    background-color: #3498db;
+    color: #fff;
+    padding: 10px;
+    }
+    
