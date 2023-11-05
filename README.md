@@ -72,6 +72,7 @@ We welcome contributions from the community. If you'd like to contribute to Chee
 
 ![alt text](https://github.com/max-hubenko/M-Ms-cheese-hacks/blob/main/FullScreenMain.png?raw=true)
 ![alt text](https://github.com/max-hubenko/M-Ms-cheese-hacks/blob/main/CreateSchedule.png?raw=true)
+![alt text](https://github.com/max-hubenko/M-Ms-cheese-hacks/blob/main/DailyScheduleView.png?raw=true)
 
 ## License
 
