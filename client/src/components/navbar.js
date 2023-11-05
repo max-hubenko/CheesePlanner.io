@@ -16,7 +16,7 @@ export default function Navibar() {
             <Nav.Link href="/">Home</Nav.Link>
             <Nav.Link href="/create">Add Schedule</Nav.Link>
             <NavDropdown title="View Schedule" id="basic-nav-dropdown">
-              <NavDropdown.Item href="#action/3.1">Daily</NavDropdown.Item>
+              <NavDropdown.Item href="/daily">Daily</NavDropdown.Item>
               <NavDropdown.Item href="#action/3.2">
                 Weekly
               </NavDropdown.Item>
