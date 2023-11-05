@@ -1,36 +1,30 @@
 import React from "react";
  // We import NavLink to utilize the react router.
-import { NavLink } from "react-router-dom";
 import "bootstrap/dist/css/bootstrap.css";
+import { Navbar, Nav, NavDropdown } from "react-bootstrap";
+import Container from 'react-bootstrap/Container';
+
  // Here, we display our Navbar
-export default function Navbar() {
+export default function Navibar() {
  return (
-   <div>
-     <nav className="navbar navbar-expand-lg navbar-light bg-light">
-       <NavLink className="navbar-brand" to="/">
-       <img style={{"width" : 25 + '%'}} src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQJKlyhrwoYbvsBa5zoJgIpLccjrOk5FhZHNw&usqp=CAU" alt = "Scheduler Logo"></img>
-       </NavLink>
-       <button
-         className="navbar-toggler"
-         type="button"
-         data-toggle="collapse"
-         data-target="#navbarSupportedContent"
-         aria-controls="navbarSupportedContent"
-         aria-expanded="false"
-         aria-label="Toggle navigation"
-       >
-         <span className="navbar-toggler-icon"></span>
-       </button>
-        <div className="collapse navbar-collapse" id="navbarSupportedContent">
-         <ul className="navbar-nav ml-auto">
-           <li className="nav-item">
-             <NavLink className="nav-link" to="/create">
-               Create Record
-             </NavLink>
-           </li>
-         </ul>
-       </div>
-     </nav>
-   </div>
+  <Navbar expand="lg" className="bg-body-tertiary">
+      <Container>
+        <Navbar.Brand href="/">CheesePlanner.io</Navbar.Brand>
+        <Navbar.Toggle aria-controls="basic-navbar-nav" />
+        <Navbar.Collapse id="basic-navbar-nav">
+          <Nav className="me-auto">
+            <Nav.Link href="/">Home</Nav.Link>
+            <Nav.Link href="/create">Add Schedule</Nav.Link>
+            <NavDropdown title="View Schedule" id="basic-nav-dropdown">
+              <NavDropdown.Item href="#action/3.1">Daily</NavDropdown.Item>
+              <NavDropdown.Item href="#action/3.2">
+                Weekly
+              </NavDropdown.Item>
+              <NavDropdown.Item href="#action/3.3">Monthly</NavDropdown.Item>
+            </NavDropdown>
+          </Nav>
+        </Navbar.Collapse>
+      </Container>
+    </Navbar>
  );
 }

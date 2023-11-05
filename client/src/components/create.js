@@ -1,5 +1,7 @@
+import { Toast } from "bootstrap";
 import React, { useState } from "react";
 import { useNavigate } from "react-router";
+import 'react-toastify/dist/ReactToastify.css';
 export default function Create() {
     const [form, setForm] = useState({
         topic: "", deadline: "", estimated_hours: "", priority_level: "", type: "",
@@ -10,10 +12,6 @@ export default function Create() {
         return setForm((prev) => {
             return { ...prev, ...value };
         });
-    }
-    // This function refreshes the form.
-    function refreshPage() {
-        window.location.reload(false);
     }
     // This function will handle the submission.
     async function onSubmit(e) {
@@ -32,10 +30,11 @@ export default function Create() {
                 return;
             });
         setForm({ topic: "", deadline: "", estimated_hours: "", priority_level: "", type: "", });
-        // This will navigate us back to the homepage.
-        navigate("/");
-        refreshPage();
         
+    }
+    // This method will navigate user back to the homepage.
+    function backToHome() {
+        navigate("/");
     }
     // This following section will display the form that takes the input from the user.
     return (
@@ -116,6 +115,7 @@ export default function Create() {
                     />
                 </div>
             </form>
+            <div><button onClick={backToHome}>Back to Home</button></div>
         </div>
     );
 }
