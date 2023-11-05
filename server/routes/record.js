@@ -63,7 +63,6 @@ recordRoutes.route("/update/:id").post(function (req, response) {
       type: req.body.type,
       deadline: req.body.deadline,
       estimated_hours: req.body.estimated_hours
-
     },
   };
   db_connect
