@@ -38,7 +38,9 @@ To get started with CheeseHacks.io, follow these steps:
 
 3. Install the necessary dependencies using npm install
 
-4. Start the application using npm start
+4. Start the application using node server.js @ /server
+
+5. Start the application using npm start @ /client
 
 The application will be accessible in your web browser at `http://localhost:3000`.
 
@@ -58,9 +60,19 @@ To add an assignment, click on the "Add Schedule" button and fill in the details
 
 Use the built-in Pomodoro timer in the "Daily" option from the "View Schedule" dropdown to maximize your study sessions. Configure work and break intervals to suit your preferences. The timer will help you maintain focus during work intervals and provide breaks for relaxation or spaced learning.
 
+## Algorithms for Scheduler
+
+![alt text](https://github.com/max-hubenko/M-Ms-cheese-hacks/blob/main/Algorithm%20SS.png)
+
 ## Contributing
 
 We welcome contributions from the community. If you'd like to contribute to CheeseHacks.io, please just contribute
+
+## Sample Image
+
+![alt text](https://github.com/max-hubenko/M-Ms-cheese-hacks/blob/main/FullScreenMain.png?raw=true)
+![alt text](https://github.com/max-hubenko/M-Ms-cheese-hacks/blob/main/CreateSchedule.png?raw=true)
+![alt text](https://github.com/max-hubenko/M-Ms-cheese-hacks/blob/main/DailyScheduleView.png?raw=true)
 
 ## License
 
