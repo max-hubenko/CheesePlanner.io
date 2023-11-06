@@ -1,7 +1,7 @@
 /* TechFeelingStyles.css */
 body {
-    background-color: #282c36;
-    color: #ffffff;
+    background-color: #ffffff;
+    color: #292525;
     font-family: Arial, sans-serif;
 }
 
@@ -34,7 +34,7 @@ body {
 
 .timer-button {
     background-color: #00ccff;
-    color: rgb(255, 255, 255);
+    color: rgb(26, 24, 24);
     /* Gray-blueish color */
     border: none;
     border-radius: 4px;
