@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { spacedRepetitionDate } from "./generateSchedule";
+import "./TechFeelingStyles.css"; // Import your CSS file
 
 function Timer() {
   const [time, setTime] = useState(0);
@@ -17,7 +18,6 @@ function Timer() {
     return () => clearInterval(interval);
   }, [timerOn]);
 
-  // Create a statement which takes in the input of time and displays certain statements based on the time
   let message = "Timer is stopped";
   if (timerOn) {
     if (time >= 0 && time < 1500000) {
@@ -31,82 +31,66 @@ function Timer() {
     }
   }
 
-  // Display time in minutes
   const minutes = Math.floor(time / 60000);
   const seconds = Math.floor((time % 60000) / 1000);
 
   return (
-    <div>
-      <h1>
-        Timer: {seconds < 10 ? `${minutes}:0${seconds} ` : `${minutes}:${seconds} `}
+    <div className="tech-feeling-timer">
+      <h1 className="timer-header">
+        Timer: {seconds < 10 ? `${minutes}:0${seconds}` : `${minutes}:${seconds}`}
       </h1>
-      <p>{message}</p>
-      <button onClick={() => setTimeOn(true)}>Start</button>
-      <button onClick={() => setTimeOn(false)}>Stop</button>
-      <button onClick={() => setTime(0)}>Reset</button>
+      <p className="timer-message">{message}</p>
+      <div className="timer-buttons">
+        <button className="timer-button start" onClick={() => setTimeOn(true)}>Start</button>
+        <button className="timer-button stop" onClick={() => setTimeOn(false)}>Stop</button>
+        <button className="timer-button reset" onClick={() => setTime(0)}>Reset</button>
+      </div>
     </div>
   );
 }
 
 const TODO = (props) => (
-    <tr>
-        <td>{props.record.topic}</td>
-        <Timer />
-    </tr>
+  <tr>
+    <td>{props.record.topic}</td>
+    <Timer />
+  </tr>
 );
 
 export default function TodoList() {
- const [records, setRecords] = useState([]);
-  // This method fetches the records from the database.
- useEffect(() => {
-   async function getRecords() {
-     const response = await fetch(`http://localhost:3000/record/`);
+  const [records, setRecords] = useState([]);
+
+  useEffect(() => {
+    async function getRecords() {
+      const response = await fetch(`http://localhost:3000/record/`);
       if (!response.ok) {
-       const message = `An error occurred: ${response.statusText}`;
-       window.alert(message);
-       return;
-     }
+        const message = `An error occurred: ${response.statusText}`;
+        window.alert(message);
+        return;
+      }
       const records = await response.json();
       setRecords(records);
-      /*
-    for(var record in records) {
-        var dates = spacedRepetitionDate(record);
-        for( var date in dates) {
-            if(date == Date.now()) {
-                setRecords(records);
-            }
-        }
-   }
-   */
-}
+    }
     getRecords();
-    return;
-    
- }, [records.length]);
-  // This method will map out the records on the table
- function showSchedule() {
-   return records.map((record) => {
-     return (
-       <TODO
-            record={record}
-            key={record._id}
-       />
-     );
-   });
- }
-  // This following section will display the table with the records of individuals.
- return (
-   <div>
-     <h3>Your TODOs</h3>
-     <table className="table table-striped" style={{ marginTop: 20 }}>
-       <thead>
-         <tr>
-           <th>Topic</th>
-           <th>Time</th>
-         </tr>
-       </thead>
-       <tbody>{showSchedule()}</tbody>
-     </table>
-   </div>
- );
+  }, []);
+
+  function showSchedule() {
+    return records.map((record) => (
+      <TODO record={record} key={record._id} />
+    ));
+  }
+
+  return (
+    <div className="tech-feeling-todo-list">
+      <h3 className="todo-list-header">Your TODOs</h3>
+      <table className="tech-feeling-table table-striped">
+        <thead>
+          <tr>
+            <th>Topic</th>
+            <th>Time</th>
+          </tr>
+        </thead>
+        <tbody>{showSchedule()}</tbody>
+      </table>
+    </div>
+  );
 }
