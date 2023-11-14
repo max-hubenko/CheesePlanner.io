@@ -80,7 +80,7 @@ export default function Edit() {
                 <div className="form-group">
                     <label htmlFor="deadline">Deadline </label>
                     <input
-                        type="date"
+                        type="datetime-local"
                         className="form-control"
                         id="deadline"
                         value={form.deadline}
