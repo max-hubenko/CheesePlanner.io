@@ -34,11 +34,11 @@ function Timer() {
   const seconds = Math.floor((time % 60000) / 1000);
 
   return (
-    <div className="p-4 bg-gray-200 rounded border border-gray-300 mb-4">
+    <div className="p-4 bg-gray-200 rounded border border-gray-300 mb-4 mr-4" style={{display: "flex", flexDirection: "column", marginRight: "10px", alignItems: "center", justifyContent: "center"}}>
       <h1 className="text-2xl font-bold mb-2">
         Timer: {seconds < 10 ? `${minutes}:0${seconds}` : `${minutes}:${seconds}`}
       </h1>
-      <p className="text-lg">{message}</p>
+      <p className="text-lg" >{message}</p>
       <div className="flex justify-center mt-4 space-x-4">
         <button
           className="bg-blue-500 text-black px-4 py-2 rounded hover:bg-blue-700"
@@ -65,7 +65,7 @@ function Timer() {
 
 const TODO = (props) => (
   <tr>
-    <td>{props.record.topic}</td>
+    <td style={{display: "flex", flexDirection: "column", alignItems: "center", justifyContent: "center"}}>{props.record.topic}</td>
     <td><Timer /></td>
   </tr>
 );
@@ -94,17 +94,20 @@ export default function TodoList() {
   }
 
   return (
-    <div className=" w-[100vw] flex flex-col justify-center items-center p-4">
-      <h1 className="text-2xl font-bold mb-4 w-full">Your TODOs</h1>
-      <table className="w-full table-auto">
-        <thead>
-          <tr>
-            <th className="bg-gray-200 p-2">Topic</th>
-            <th className="bg-gray-200 p-2">Time</th>
-          </tr>
-        </thead>
-        <tbody>{showSchedule()}</tbody>
-      </table>
+    <div style={{ display: "flex", flexDirection: "column" }}>
+      <h2 className="text-2xl font-bold mb-4">Your TODOs</h2>
+      <div style={{ display: "flex", flexDirection: "column", justifyContent: "center" }}>
+
+        <table className="w-full table-auto">
+          <thead>
+            <tr>
+              <th className="bg-gray-200 p-2">Topic</th>
+              <th className="bg-gray-200 p-2">Time</th>
+            </tr>
+          </thead>
+          <tbody>{showSchedule()}</tbody>
+        </table>
+      </div>
     </div>
   );
 }
