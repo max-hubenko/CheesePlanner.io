@@ -1,10 +1,10 @@
 import React, { useState } from "react";
-import { useNavigate } from "react-router";
+import "../App.css";
+
 export default function Create() {
     const [form, setForm] = useState({
         topic: "", deadline: "", estimated_hours: "", priority_level: "", type: "",
     });
-    const navigate = useNavigate();
     // These methods will update the state properties.
     function updateForm(value) {
         return setForm((prev) => {
@@ -16,7 +16,7 @@ export default function Create() {
         e.preventDefault();
         // When a post request is sent to the create url, we'll add a new record to the database.
         const newTODO = { ...form };
-        if(newTODO.topic === "" || newTODO.deadline === "" || newTODO.estimated_hours === "" || newTODO.priority_level === "" || newTODO.type === "") {
+        if (newTODO.topic === "" || newTODO.deadline === "" || newTODO.estimated_hours === "" || newTODO.priority_level === "" || newTODO.type === "") {
             window.alert("Please fill in all the fields.");
             return;
         }
@@ -32,17 +32,13 @@ export default function Create() {
                 return;
             });
         setForm({ topic: "", deadline: "", estimated_hours: "", priority_level: "", type: "", });
-        navigate("/");
-    }
-    // This method will navigate user back to the homepage.
-    function backToHome() {
-        navigate("/");
+
     }
     // This following section will display the form that takes the input from the user.
     return (
-        <div style={{display:"flex", flexDirection:"column", justifyContent: "center", alignContent: "center", height: "100vh" }}>
-            <div style={{display:"flex",flexDirection:"column",marginTop:"10vh"}}className="form-box">
-                <div style={{display:"flex",justifyContent:"center"}}>
+        <div style={{ display: "flex", flexDirection: "column", justifyContent: "center", alignContent: "center", height: "100vh" }}>
+            <div style={{ display: "flex", flexDirection: "column", marginTop: "10vh" }} className="form-box">
+                <div style={{ display: "flex", justifyContent: "center" }}>
                     <h3>Create New Schedule</h3>
                 </div>
                 <form onSubmit={onSubmit}>
@@ -82,7 +78,7 @@ export default function Create() {
                             type="number"
                             className="form-control"
                             id="priority-level"
-                            min="1" 
+                            min="1"
                             max="5"
                             value={form.priority_level}
                             onChange={(e) => updateForm({ priority_level: e.target.value })}
@@ -114,14 +110,11 @@ export default function Create() {
                             <label htmlFor="typeAssignment" className="form-check-label">Assignment</label>
                         </div>
                     </div>
-                    <div style={{display:"flex",justifyContent:"center",marginTop:"2vh"}} className="form-group">
-                        <input
+                    <div style={{ display: "flex", justifyContent: "center", marginTop: "2vh" }} className="form-group">
+                        <button
                             type="submit"
-                            value="Submit Topic"
                             className="btn btn-primary"
-                            style={{width:"100%"}}
-                        />
-                        <button className="btn btn-primary" style={{width:"100%", marginLeft:'3px'}} onClick={backToHome}>Back to Home</button>
+                            style={{ width: "100%" }}>Submit</button>
                     </div>
                 </form>
             </div>
